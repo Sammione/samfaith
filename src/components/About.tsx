@@ -47,7 +47,7 @@ export const About = () => {
 
                     <div className="mt-12 flex items-center gap-8">
                         <div className="text-center">
-                            <span className="block text-3xl font-serif">2023</span>
+                            <span className="block text-3xl font-serif">2024</span>
                             <span className="text-[10px] uppercase tracking-widest text-accent-muted">When it started</span>
                         </div>
                         <div className="w-[1px] h-12 bg-accent-soft"></div>
