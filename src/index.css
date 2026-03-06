@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@100..900&display=swap');
+
+:root {
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Inter', sans-serif;
+  
+  /* Romantic Color Palette */
+  --bg-primary: #fcfaf7; /* Off-white / Cream */
+  --bg-secondary: #f3f0ec;
+  --text-primary: #2c2926; /* Deep charcoal */
+  --text-secondary: #6b635d;
+  --accent-soft: #d4c0b5; /* Warm beige */
+  --accent-muted: #8e7d73;
+  --white: #ffffff;
+  
+  --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .font-serif {
+  font-family: var(--font-serif);
+  font-weight: 400;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Glassmorphism Classes */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.media-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--bg-secondary);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.media-card:hover {
+  transform: scale(0.98);
+}
+
+.media-card img, .media-card video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-smooth);
+}
+
+.media-card:hover img, .media-card:hover video {
+  transform: scale(1.05);
+}
+
+/* Scroll Animation Utilities */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* Section Spacing */
+section {
+  padding: 8rem 0;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 4rem 0;
+  }
+}
