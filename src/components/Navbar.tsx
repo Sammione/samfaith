@@ -30,7 +30,7 @@ export const Navbar = () => {
 
                 <div className={`hidden md:flex gap-8 text-xs uppercase tracking-widest font-medium ${isScrolled ? 'text-text-secondary' : 'text-white/80'
                     }`}>
-                    <a href="#" className="hover:text-accent-muted transition-colors">Our Story</a>
+                    <a href="#story" className="hover:text-accent-muted transition-colors">Our Story</a>
                     <a href="#gallery" className="hover:text-accent-muted transition-colors">Gallery</a>
                     <a href="#moments" className="hover:text-accent-muted transition-colors">Moments</a>
                 </div>

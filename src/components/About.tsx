@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 export const About = () => {
     return (
-        <section className="bg-bg-secondary overflow-hidden">
+        <section id="story" className="bg-bg-secondary overflow-hidden">
             <div className="container grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                 <motion.div
                     initial={{ opacity: 0, x: -50 }}
