@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Gallery } from '../components/Gallery';
+import { BackButton } from '../components/BackButton';
 
 export const GalleryPage = () => {
     return (
@@ -10,6 +11,7 @@ export const GalleryPage = () => {
             transition={{ duration: 0.8 }}
             className="pt-24 min-h-screen" // Static header spacing
         >
+            <BackButton />
             <Gallery />
 
             <section className="bg-bg-primary py-24 border-t border-black/5">

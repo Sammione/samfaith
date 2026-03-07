@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { About } from '../components/About';
+import { BackButton } from '../components/BackButton';
 
 export const StoryPage = () => {
     return (
@@ -8,8 +9,9 @@ export const StoryPage = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.8 }}
-            className="pt-24" // Spacing for static header
+            className="pt-24 min-h-screen" // Spacing for static header
         >
+            <BackButton />
             <About />
 
             <section className="bg-bg-primary py-20 pb-32">

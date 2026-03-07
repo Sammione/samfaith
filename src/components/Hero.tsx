@@ -9,36 +9,29 @@ export const Hero = () => {
     ];
 
     return (
-        <section className="relative h-screen w-full flex items-center justify-center overflow-hidden p-0">
-            {/* Background Media */}
+        <section className="relative h-screen w-full flex items-center justify-center overflow-hidden p-0 bg-black">
+            {/* Background Image: Couple Rings (Stable High-res URL) */}
             <div className="absolute inset-0 z-0">
-                {/* Desktop Video (Hidden on Mobile) */}
-                <div className="hidden md:block w-full h-full">
-                    <video
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        className="w-full h-full object-cover"
-                    >
-                        <source src="/images/Snapchat-1355185705.mp4" type="video/mp4" />
-                    </video>
-                </div>
-
-                {/* Couple Rings Image (The "Hardcoded" one - using stable Pexels High-res URL) */}
-                <div className="absolute inset-0 block">
-                    <img
-                        src="https://images.unsplash.com/photo-1541250848049-b4f71413cc30?q=80&w=2574&auto=format&fit=crop"
-                        alt="Couple Rings Background"
-                        className="w-full h-full object-cover"
-                    />
-                </div>
-
-                <div className="absolute inset-0 bg-black/60 backdrop-blur-[1px]"></div>
+                <img
+                    src="https://images.pexels.com/photos/265722/pexels-photo-265722.jpeg?auto=compress&cs=tinysrgb&w=2560"
+                    alt="Couple Rings Background"
+                    className="w-full h-full object-cover opacity-60"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 backdrop-blur-[0.5px]"></div>
             </div>
 
             {/* Content */}
-            <div className="relative z-10 text-center text-white px-6 max-w-4xl">
+            <div className="relative z-10 text-center text-white px-6 max-w-4xl flex flex-col items-center">
+                {/* Visual Ring Ornament (Fallback or extra style) */}
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 1.5 }}
+                    className="mb-8 w-20 h-20 border-2 border-accent-soft rounded-full flex items-center justify-center opacity-40"
+                >
+                    <div className="w-12 h-12 border border-accent-soft rounded-full scale-125 translate-x-3 opacity-60"></div>
+                </motion.div>
+
                 <motion.span
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -63,13 +56,13 @@ export const Hero = () => {
                     transition={{ duration: 1.2, delay: 0.8 }}
                     className="space-y-6"
                 >
-                    <p className="text-base md:text-xl font-light tracking-wide max-w-2xl mx-auto leading-relaxed opacity-90 italic font-serif">
+                    <p className="text-base md:text-xl font-light tracking-wide max-w-2xl mx-auto leading-relaxed italic font-serif">
                         "In the circle of these rings, we find our eternity. A promise made in grace,
                         nurtured by deep devotion, and celebrated in every heartbeat we share."
                     </p>
                     <div className="w-12 h-[1px] bg-white/30 mx-auto mt-8"></div>
 
-                    {/* Mobile Only: Navigation Links listed on Home Page */}
+                    {/* Navigation Links listed on Home Page for mobile */}
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
@@ -80,7 +73,7 @@ export const Hero = () => {
                             <Link
                                 key={link.path}
                                 to={link.path}
-                                className="text-lg font-serif italic tracking-widest text-accent-soft hover:text-white transition-colors border-b border-accent-soft/20 pb-1 w-32"
+                                className="text-lg font-serif italic tracking-widest text-accent-soft hover:text-white transition-colors border-b border-accent-soft/20 pb-1 w-40"
                             >
                                 {link.name}
                             </Link>
