@@ -5,16 +5,38 @@ export const Hero = () => {
         <section className="relative h-screen w-full flex items-center justify-center overflow-hidden p-0">
             {/* Background Media */}
             <div className="absolute inset-0 z-0">
-                <video
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    className="w-full h-full object-cover"
-                >
-                    <source src="/images/Snapchat-1355185705.mp4" type="video/mp4" />
-                </video>
-                <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px]"></div>
+                {/* Desktop Video (Hidden on Mobile) */}
+                <div className="hidden md:block w-full h-full">
+                    <video
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        className="w-full h-full object-cover"
+                    >
+                        <source src="/images/Snapchat-1355185705.mp4" type="video/mp4" />
+                    </video>
+                </div>
+
+                {/* Couple Rings Image (Visible on Mobile, static on all) */}
+                <div className="md:hidden absolute inset-0">
+                    <img
+                        src="https://images.unsplash.com/photo-1541250848049-b4f71413cc30?q=80&w=2574&auto=format&fit=crop"
+                        alt="Couple Rings Mobile"
+                        className="w-full h-full object-cover"
+                    />
+                </div>
+
+                {/* Static Image for Desktop Overlay / Fallback */}
+                <div className="hidden md:absolute md:inset-0 md:opacity-20 md:pointer-events-none md:block">
+                    <img
+                        src="https://images.unsplash.com/photo-1541250848049-b4f71413cc30?q=80&w=2574&auto=format&fit=crop"
+                        alt="Couple Rings Desktop"
+                        className="w-full h-full object-cover"
+                    />
+                </div>
+
+                <div className="absolute inset-0 bg-black/50 backdrop-blur-[1px]"></div>
             </div>
 
             {/* Content */}
@@ -41,13 +63,16 @@ export const Hero = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1.2, delay: 0.8 }}
-                    className="space-y-4"
+                    className="space-y-6"
                 >
-                    <p className="text-sm md:text-lg font-light tracking-wide max-w-2xl mx-auto leading-relaxed opacity-90">
-                        "Two lives, one path. A devotion that transcends the ordinary,
-                        where every shared breath is a testament to a love nurtured by grace."
+                    <p className="text-base md:text-xl font-light tracking-wide max-w-2xl mx-auto leading-relaxed opacity-90 italic font-serif">
+                        "In the circle of these rings, we find our eternity. A promise made in grace,
+                        nurtured by deep devotion, and celebrated in every heartbeat we share."
                     </p>
                     <div className="w-12 h-[1px] bg-white/30 mx-auto mt-8"></div>
+                    <p className="text-[10px] uppercase tracking-[0.3em] font-light opacity-60">
+                        Forever is just the beginning
+                    </p>
                 </motion.div>
             </div>
         </section>
