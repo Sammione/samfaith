@@ -1,6 +1,13 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 export const Hero = () => {
+    const navLinks = [
+        { name: 'Our Story', path: '/story' },
+        { name: 'Gallery', path: '/gallery' },
+        { name: 'Moments', path: '/moments' }
+    ];
+
     return (
         <section className="relative h-screen w-full flex items-center justify-center overflow-hidden p-0">
             {/* Background Media */}
@@ -18,25 +25,16 @@ export const Hero = () => {
                     </video>
                 </div>
 
-                {/* Couple Rings Image (Visible on Mobile, static on all) */}
-                <div className="md:hidden absolute inset-0">
+                {/* Couple Rings Image (The "Hardcoded" one - using stable Pexels High-res URL) */}
+                <div className="absolute inset-0 block">
                     <img
                         src="https://images.unsplash.com/photo-1541250848049-b4f71413cc30?q=80&w=2574&auto=format&fit=crop"
-                        alt="Couple Rings Mobile"
+                        alt="Couple Rings Background"
                         className="w-full h-full object-cover"
                     />
                 </div>
 
-                {/* Static Image for Desktop Overlay / Fallback */}
-                <div className="hidden md:absolute md:inset-0 md:opacity-20 md:pointer-events-none md:block">
-                    <img
-                        src="https://images.unsplash.com/photo-1541250848049-b4f71413cc30?q=80&w=2574&auto=format&fit=crop"
-                        alt="Couple Rings Desktop"
-                        className="w-full h-full object-cover"
-                    />
-                </div>
-
-                <div className="absolute inset-0 bg-black/50 backdrop-blur-[1px]"></div>
+                <div className="absolute inset-0 bg-black/60 backdrop-blur-[1px]"></div>
             </div>
 
             {/* Content */}
@@ -70,7 +68,26 @@ export const Hero = () => {
                         nurtured by deep devotion, and celebrated in every heartbeat we share."
                     </p>
                     <div className="w-12 h-[1px] bg-white/30 mx-auto mt-8"></div>
-                    <p className="text-[10px] uppercase tracking-[0.3em] font-light opacity-60">
+
+                    {/* Mobile Only: Navigation Links listed on Home Page */}
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 1.2 }}
+                        className="md:hidden flex flex-col items-center gap-6 mt-12"
+                    >
+                        {navLinks.map((link) => (
+                            <Link
+                                key={link.path}
+                                to={link.path}
+                                className="text-lg font-serif italic tracking-widest text-accent-soft hover:text-white transition-colors border-b border-accent-soft/20 pb-1 w-32"
+                            >
+                                {link.name}
+                            </Link>
+                        ))}
+                    </motion.div>
+
+                    <p className="hidden md:block text-[10px] uppercase tracking-[0.3em] font-light opacity-60">
                         Forever is just the beginning
                     </p>
                 </motion.div>
